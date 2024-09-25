@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(26, 90, 0);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .leaderboard {
+            background-color: #08ec08;
+            border: 1px solid #00ff0d;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px; /* Adjust width as needed */
+            margin-right: 50px; /* Adjust margin-right as needed */
+            
+        }
+
+        .leaderboard h3 {
+            margin: 0;
+            font-size: 1.2em;
+            background-color: #009688;
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            border-radius: 10px 10px 10px 10px;
+            text-align: center;
+        }
+
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .leaderboard th, .leaderboard td {
+            padding: 1px;
+            text-align: center;
+            border: 1px solid #ddd;
+            
+        }
+
+        .leaderboard th {
+            background-color: #009688;
+            color: white;
+            border: none;
+        }
+
+        .leaderboard tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .leaderboard tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .settings, .leaderboard {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 300px;
+        }
+
+        .settings {
+            margin-left: 20px; /* Adjust margin-left for settings panel */
+        }
+
+        #canvas-container {
+            position: relative;
+        }
+
+        canvas {
+            border: 2px solid #333;
+            background-color: #578a34;
+            margin: 0 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #009688;
+            color: white;
+            border: none;
+            padding: 5px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .resetbutton-button {
+            padding: 30px;
+        }
+
+        button:hover {
+            background-color: #00796b;
+        }
+
+        .abmelden-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #009688;
+        }
+
+        .abmelden-button:hover {
+            background-color: #c70039;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="leaderboard">
+            <h3>Leaderboard</h3>
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Score</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Leaderboard scores will be added here dynamically -->
+                </tbody>
+            </table>
+            <button id="resetLeaderboardButton">Reset Leaderboard</button>
+        </div>
+        <div id="canvas-container">
+            <canvas id="canvas" width="400" height="500"></canvas>
+        </div>
+        <div class="settings">
+            <button id="resetButton">Restart</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Food Count<br>(1-10)</td>
+                        <td><input type="number" id="foodCount" value="1" min="1" max="10" disabled></td>
+                    </tr>
+                    <tr>
+                        <td>Snake Color</td>
+                        <td><input type="color" id="snakeColor" value="#000000"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
